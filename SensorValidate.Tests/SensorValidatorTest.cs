@@ -9,13 +9,14 @@ namespace SensorValidate.Tests
     {
         [Fact]
         public void reportsErrorWhenSOCjumps() {
-            Assert.False(SensorValidator.validateSOCreadings(
+            Assert.False(SensorValidator.ValidateSOCreadings(
                 new List<double>{0.0, 0.01, 0.5, 0.51}
             ));
         }
+        
         [Fact]
         public void reportsErrorWhenCurrentjumps() {
-            Assert.False(SensorValidator.validateCurrentreadings(
+            Assert.False(SensorValidator.ValidateCurrentReadings(
                 new List<double>{0.03, 0.03, 0.03, 0.33}
             ));
         }

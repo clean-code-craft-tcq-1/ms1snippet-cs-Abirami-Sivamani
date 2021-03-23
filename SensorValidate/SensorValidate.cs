@@ -17,6 +17,7 @@ namespace SensorValidate
                 return ValidateReadings(values, 0.05);
             return false;
         }
+        
         public static bool ValidateCurrentReadings(List<Double> values) {
             if (IsReadingsEmpty(values))
                 return ValidateReadings(values, 0.1);

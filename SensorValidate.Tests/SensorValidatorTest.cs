@@ -36,5 +36,21 @@ namespace SensorValidate.Tests
             new List<double> { }
             ));
         }
+        
+        [Fact]
+        public void ReportsErrorWhenSOCReadingsHasNaN()
+        {
+            Assert.False(SensorValidator.ValidateSOCreadings(
+             new List<double> { Double.NaN, Double.NaN, 0.1, Double.NaN }
+             ));
+        }
+
+        [Fact]
+        public void ReportsErrorWhenCurrentReadingsHasNaN()
+        {
+            Assert.False(SensorValidator.ValidateCurrentReadings(
+            new List<double> { 0.03, 0.03, Double.NaN, Double.NaN }
+            ));
+        }
     }
 }

@@ -46,7 +46,7 @@ namespace SensorValidate
         
         static bool IsReadingsNaN(double value, double nextValue)
         {
-            if(Double.IsNaN(value) || Double.IsNaN(nextValue)
+            if(Double.IsNaN(value) || Double.IsNaN(nextValue))
                return true;
              return false;
         }

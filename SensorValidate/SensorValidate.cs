@@ -29,7 +29,7 @@ namespace SensorValidate
             int lastButOneIndex = values.Count - 1;
             for (int i = 0; i < lastButOneIndex; i++)
             {
-                if (Double.IsNaN(values[i]) || Double.IsNaN(values[i+ 1]) || !IsHigherThanMaxDelta(values[i], values[i + 1], maxDelta))
+                if (IsReadingsNaN(values[i], values[i+1]) || !IsHigherThanMaxDelta(values[i], values[i + 1], maxDelta))
                 {
                     return false;
                 }
@@ -42,6 +42,13 @@ namespace SensorValidate
             if (values.Count > 0)
                 return true;
             return false;
+        }
+        
+        static bool IsReadingsNaN(double value, double nextValue)
+        {
+            if(Double.IsNaN(value) || Double.IsNaN(nextValue)
+               return true;
+             return false;
         }
     }
 }

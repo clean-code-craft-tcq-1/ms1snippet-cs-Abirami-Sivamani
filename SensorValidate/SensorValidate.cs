@@ -6,7 +6,7 @@ namespace SensorValidate
     public class SensorValidator
     {
         public static bool IsHigherThanMaxDelta(double value, double nextValue, double maxDelta) {
-            if(IsReadingsNaN(values[i], values[i+1]) || nextValue - value > maxDelta) {
+            if(IsReadingsNaN(value, nextValue) || nextValue - value > maxDelta) {
                 return false;
             }
             return true;

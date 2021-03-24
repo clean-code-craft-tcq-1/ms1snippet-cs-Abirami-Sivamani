@@ -29,7 +29,7 @@ namespace SensorValidate
             int lastButOneIndex = values.Count - 1;
             for (int i = 0; i < lastButOneIndex; i++)
             {
-                if (!IsHigherThanMaxDelta(values[i], values[i + 1], maxDelta))
+                if (Double.IsNaN(values[i]) || Double.IsNaN(values[i+ 1]) || !IsHigherThanMaxDelta(values[i], values[i + 1], maxDelta))
                 {
                     return false;
                 }

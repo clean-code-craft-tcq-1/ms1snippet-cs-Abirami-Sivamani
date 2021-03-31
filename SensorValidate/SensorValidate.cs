@@ -5,7 +5,7 @@ namespace SensorValidate
 {
     public class SensorValidator
     {
-        public static bool IsValueDifferenceHigherThanMaxDelta(double value, double nextValue, double maxDelta) {
+        public static bool IsValueDifferenceLowerThanMaxDelta(double value, double nextValue, double maxDelta) {
             if(IsReadingsNaN(value, nextValue) || nextValue - value > maxDelta) {
                 return false;
             }
@@ -29,7 +29,7 @@ namespace SensorValidate
             int lastButOneIndex = values.Count - 1;
             for (int i = 0; i < lastButOneIndex; i++)
             {
-                if (!IsValueDifferenceHigherThanMaxDelta(values[i], values[i + 1], maxDelta))
+                if (!IsValueDifferenceLowerThanMaxDelta(values[i], values[i + 1], maxDelta))
                 {
                     return false;
                 }

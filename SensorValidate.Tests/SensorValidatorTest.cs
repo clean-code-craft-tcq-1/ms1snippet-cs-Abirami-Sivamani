@@ -8,15 +8,48 @@ namespace SensorValidate.Tests
     public class SensorValidatorTest
     {
         [Fact]
-        public void reportsErrorWhenSOCjumps() {
-            Assert.False(SensorValidator.validateSOCreadings(
+        public void ReportsErrorWhenSOCJumps() {
+            Assert.False(SensorValidator.ValidateSOCreadings(
                 new List<double>{0.0, 0.01, 0.5, 0.51}
             ));
         }
+        
         [Fact]
-        public void reportsErrorWhenCurrentjumps() {
-            Assert.False(SensorValidator.validateCurrentreadings(
+        public void ReportsErrorWhenCurrentJumps() {
+            Assert.False(SensorValidator.ValidateCurrentReadings(
                 new List<double>{0.03, 0.03, 0.03, 0.33}
+            ));
+        }
+        
+        [Fact]
+        public void ReportsErrorWhenSOCEmpty()
+        {
+           Assert.False(SensorValidator.ValidateSOCreadings(
+            new List<double> { }
+            ));
+        }
+
+        [Fact]
+        public void ReportsErrorWhenCurrentEmpty()
+        {
+            Assert.False(SensorValidator.ValidateCurrentReadings(
+            new List<double> { }
+            ));
+        }
+        
+        [Fact]
+        public void ReportsErrorWhenSOCReadingsHasNaN()
+        {
+            Assert.False(SensorValidator.ValidateSOCreadings(
+             new List<double> { Double.NaN, Double.NaN, 0.1, Double.NaN }
+             ));
+        }
+
+        [Fact]
+        public void ReportsErrorWhenCurrentReadingsHasNaN()
+        {
+            Assert.False(SensorValidator.ValidateCurrentReadings(
+            new List<double> { 0.03, 0.03, Double.NaN, Double.NaN }
             ));
         }
     }
